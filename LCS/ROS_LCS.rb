@@ -5,6 +5,7 @@ input = ARGV[0];
 dna_strings = File.open(input,"r").readlines.map {|s| s.chomp!}
 
 # http://en.wikibooks.org/wiki/Algorithm_implementation/Strings/Longest_common_substring#Ruby
+# http://www.ics.uci.edu/~dan/class/161/notes/6/Dynamic.html
 # TODO: I need to modify this function to return an array of substrings instead
 def find_longest_common_substring(s1, s2)
     if (s1 == "" || s2 == "")
@@ -13,8 +14,8 @@ def find_longest_common_substring(s1, s2)
     m = Array.new(s1.length){ [0] * s2.length }
     n = []
     longest_length, longest_end_pos = 0,0
-    (0 .. s1.length - 1).each do |x|
-      (0 .. s2.length - 1).each do |y|
+    s1.length.times do |x|
+      s2.length.times do |y|
         if s1[x] == s2[y]
           m[x][y] = 1
           if (x > 0 && y > 0)
@@ -30,7 +31,7 @@ def find_longest_common_substring(s1, s2)
         end
       end
     end
-    puts n
+    puts m
     return s1[longest_end_pos - longest_length + 1 .. longest_end_pos]
 end
 
