@@ -3,12 +3,12 @@
 from itertools import combinations
 import sys
 
-problem = "ROS"
+problem = "LCSM"
 print(f"This is the {problem}")
 print(f"Detailed instructions can be found here: http://rosalind.info/problems/{problem.lower()}/")
 
-print(f"> **Given**: A collection of at most 10 DNA strings of equal length (at most 1 kbp) in FASTA format.")
-print(f"> **Return**: A consensus string and profile matrix for the collection. (If several possible consensus strings exist, then you may return any one of them.) ")
+print(f"> **Given**: A collection of k (k≤100) DNA strings of length at most 1 kbp each in FASTA format.")
+print(f"> **Return**: A longest common substring of the collection. (If multiple solutions exist, you may return any single solution.)")
 
 data = sys.stdin.readlines()
 print(f"")
