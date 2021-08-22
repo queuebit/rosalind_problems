@@ -2,7 +2,7 @@
 
 import sys
 
-problem = "ROS"
+problem = "CONS"
 print(f"This is the {problem}")
 print(f"Detailed instructions can be found here: http://rosalind.info/problems/{problem.lower()}/")
 
