@@ -18,24 +18,48 @@ print(f"n: {n}")
 print(f"m: {m}")
 
 fib = [1, 1, 2]
+#pop = [[0], [1], [0, 2]]
+last_pop = [0,2]
 
 for x in range(3,n):
+    ### A
     # rab_a = fib[-3]
     # rab_b = fib[-2]
     # pop_rab = rab_a + rab_b
     # print(f"After {x + 1} months there are population pairs of {pop_rab}")
     # fib.append(pop_rab)
-    ret_rab = 0
-    rab_a = fib[-2]
-    rab_b = fib[-1]
-    if len(fib) > m:
-        for i in range(1,m):
-            print(i, -i, -(i+1))
-            ret_rab += fib[-i] - fib[-(i+1)]
 
-    pop_rab = rab_a + rab_b - ret_rab
-    print(m, rab_a, rab_b, ret_rab)
-    print(f"After {x+1} months there are population pairs of {pop_rab}")
-    fib.append(pop_rab)
+    ### B
+    # ret_rab = 0
+    # rab_a = fib[-2]
+    # rab_b = fib[-1]
+    # if len(fib) > m:
+    #    for i in range(1,m):
+    #        print(i, -i, -(i+1))
+    #        ret_rab += fib[-i] - fib[-(i+1)]
+
+    #prev_month = pop[-1]
+    this_month = []
+
+    for r in last_pop:
+        if r == 0:
+            this_month.append(1)
+        elif r == m - 1:
+            this_month.append(0)
+        else:
+            this_month.append(0)
+            this_month.append(r+1)
+
+    #pop.append(this_month)
+    last_pop = this_month
+
+    #print(f"prev month MON:{x} rabbits: {len(prev_month)} -- {prev_month}")
+    #print(f"this month MON:{x+1} rabbits: {len(this_month)} -- {this_month}")
+    fib.append(len(this_month))
+
+    #pop_rab = rab_a + rab_b - ret_rab
+    #print(m, rab_a, rab_b, ret_rab)
+    #print(f"After {x+1} months there are population pairs of {pop_rab}")
+    #fib.append(pop_rab)
 
 print(f"{fib[-1]}")
