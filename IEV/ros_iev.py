@@ -29,3 +29,65 @@ print(f"5. Aa-aa: {nAaaa}")
 print(f"6. aa-aa: {naaaa}")
 
 print(f"")
+
+p = 2
+
+#  |  A |  A
+#---------
+# A| AA | AA
+#---------
+# A| AA | AA 
+
+t1_dom = 1
+
+#  |  A |  a
+#---------
+# A| AA | Aa
+#---------
+# A| AA | Aa 
+
+t2_dom = 1
+
+#  |  a |  a
+#---------
+# A| Aa | Aa
+#---------
+# A| Aa | Aa 
+
+t3_dom = 1
+
+#  |  A |  a
+#---------
+# A| AA | Aa
+#---------
+# a| aA | aa 
+
+t4_dom = 0.75
+
+#  |  a |  a
+#---------
+# A| Aa | Aa
+#---------
+# a| aa | aa 
+
+t5_dom = 0.5
+
+#  |  a |  a
+#---------
+# a| aa | aa
+#---------
+# a| aa | aa 
+
+t6_dom = 0
+
+#E(Ax)
+
+eAx =  p * (nAAAA * t1_dom +
+        nAAAa * t2_dom +
+        nAAaa * t3_dom + 
+        nAaAa * t4_dom +
+        nAaaa * t5_dom +
+        naaaa * t6_dom)
+
+print(f"{eAx}")
+
