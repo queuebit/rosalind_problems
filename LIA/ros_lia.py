@@ -17,6 +17,13 @@ k, n = [int(i) for i in data.strip().split(' ')]
 print(f"k = {k}")
 print(f"N = {n}")
 
+
+print(f"")
+print(f"Stats thinking...")
+print(f"k-gen family = {2**k}")
+print(f"P(at least {n}) = {' + '.join(str('P(' + str(a) + ')') for a in range(n, 2**k + 1))}")
+print(f"OR")
+print(f"P(at least {n}) = 1 - ({' + '.join(str('P(' + str(a) + ')') for a in range(0, n))})")
 print(f"")
 
 #  |  A |  a
@@ -81,10 +88,10 @@ print(sum(pPop))
 #---------
 # b| bB | bb 
 
-g2AA_pAa = 1 / 4
+g2AA_pAa = 2 / 4
 g2aa_pAa = 2 / 4
 
-g2BB_pBb = 1 / 4
+g2BB_pBb = 2 / 4
 g2bb_pBb = 2 / 4
 
 g2_AABB_pHetero = g2AA_pAa * g2BB_pBb
@@ -106,3 +113,52 @@ g2_pPopHetero = [g2_AABB_pHetero, g2_AABb_pHetero, g2_AAbb_pHetero,
 #a = [1, 2, 3]
 #b = [2, 3, 4]
 #print(a, b, list(map(lambda x,y:x*y,a,b)), a * p, b * p)
+
+pFixed = 0.25
+
+# AA, Aa, aa, BB, Bb, bb
+pTree = [pAA, pAa, paa, pBB, pBb, pbb]
+for g in range(1, k + 1):
+    print(pPop)
+    print(pTree)
+    pTree = list(map(lambda pp: pp , pTree))
+    print(pTree)
+    print(pTree[1] * pTree[4])
+
+# -----
+
+# Thinking
+# Aa x Aa
+# AA = 1/4
+# Aa = 2/4
+# aa = 1/4
+
+## Bb x Bb
+# BB = 1/4
+# Bb = 2/4
+# bb = 1/4
+
+## AA x Aa
+# AA = 2/4
+# Aa = 2/4
+# aa = 0/4
+
+## aa x Aa
+# AA = 0/4
+# Aa = 2/4
+# aa = 2/4
+
+## BB x Bb
+# BB = 2/4
+# Bb = 2/4
+# bb = 0/4
+
+## bb x Bb
+# BB = 0/4
+# Bb = 2/4
+# bb = 2/4
+
+### Binomial probabilities
+# G1
+# AA Aa aa
+# 
